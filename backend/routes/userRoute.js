@@ -1,15 +1,15 @@
 import express from 'express';
 import { getUser, getUsers, updateUserProfile, removeUser } from '../controllers/userController.js';
-import { authorize } from '../middlewares/authMiddleware.js';
+import { authorize, isAuthenticated } from '../middlewares/authMiddleware.js';
 
 const router = express.Router();
 
-router.get('/:id', authorize(['admin', 'super-admin']), getUser);
+router.get('/:id', isAuthenticated, authorize(['admin', 'super-admin']), getUser);
 
-router.get('/', authorize(['admin', 'super-admin']), getUsers);
+router.get('/', isAuthenticated, authorize(['admin', 'super-admin']), getUsers);
 
-router.put('/:id', authorize(['user', 'admin', 'super-admin']), updateUserProfile);
+router.put('/:id',isAuthenticated, authorize(['user', 'admin', 'super-admin']), updateUserProfile);
 
-router.delete('/:id', authorize(['admin', 'super-admin']), removeUser);
+router.delete('/:id',isAuthenticated, authorize(['admin', 'super-admin']), removeUser);
 
 export default router;
