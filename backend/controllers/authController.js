@@ -1,4 +1,4 @@
-import { registerUser, loginUser, verifyUserToken, googleLogin, authorizeRoles } from '../services/authServices.js';
+import { registerUser, loginUser, verifyUserToken, googleLogin } from '../services/authServices.js';
 
 // Register Controller
 export const register = async (req, res) => {

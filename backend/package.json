@@ -2,9 +2,10 @@
   "name": "backend",
   "version": "1.0.0",
   "main": "server.js",
-  "type": "commonjs",
+  "type": "module",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "start": "node server.js"
   },
   "author": "Samir kumar",
   "license": "ISC",
