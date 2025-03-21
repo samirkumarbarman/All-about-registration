@@ -14,6 +14,13 @@ const app = express();
 
 app.use(express.json());
 
+app.use(express.urlencoded({ extended: true }));
+
+const corsoptions ={
+    origin: 'http://localhost:5173',
+    optionSuccessStatus: 200
+}
+
 app.use(session({
     secret: process.env.SESSION_SECRET, // This should be a secret key stored in your .env file
     resave: false,                      // Forces the session to be saved back to the session store
