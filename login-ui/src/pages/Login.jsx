@@ -2,15 +2,17 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import "../App.css";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const navigate = useNavigate();
 
     const onSubmit = async (data) => {
         try {
             const response = await axios.post('http://localhost:4040/api/auth/login', data);
             console.log(response.data);
-            window.location.href = '/dashboard';
+            navigate('/welcome');
         } catch (error) {
             console.error('There was an error logging in the user!', error);
         }
