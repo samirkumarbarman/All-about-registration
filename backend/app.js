@@ -6,11 +6,14 @@ import dotenv from 'dotenv';
 import authRoutes from './routes/authRoute.js';
 import userRoutes from './routes/userRoute.js';
 import errorHandler from './middlewares/errorhandler.js';
+import corsMiddleware from './middlewares/corsMiddleware.js';
 
 dotenv.config();
 connectDB();
 
 const app = express();
+
+app.use(corsMiddleware);
 
 app.use(express.json());
 
